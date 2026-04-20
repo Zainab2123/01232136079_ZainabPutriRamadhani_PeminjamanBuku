@@ -1,0 +1,590 @@
+/* ============================================
+   ANGGOTA PAGES - Profil, Histori, Peminjaman & Pengembalian
+   Modern Responsive Design
+   ============================================ */
+
+.anggota-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 16px;
+}
+
+/* ============================================
+   BACK LINK
+   ============================================ */
+.anggota-page .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--gray-500);
+    margin-bottom: 1rem;
+    padding: 8px 14px;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.anggota-page .back-link:hover {
+    color: var(--primary);
+    background: var(--primary-50);
+    text-decoration: none;
+}
+
+/* ============================================
+   PROFILE CARD
+   ============================================ */
+.profile-card {
+    background: var(--card);
+    border-radius: var(--radius-xl);
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--gray-200);
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+}
+
+.profile-card h1 {
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-card h1 i {
+    color: var(--primary);
+    font-size: 1.4rem;
+}
+
+.profile-info {
+    margin: 1.25rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--gray-50);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--gray-100);
+    transition: all var(--transition-fast);
+}
+
+.profile-info-item:hover {
+    background: var(--primary-50);
+    border-color: var(--primary-100);
+}
+
+.profile-info-item i {
+    color: var(--primary);
+    font-size: 1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.profile-info-item span {
+    font-size: 0.92rem;
+    color: var(--gray-700);
+    font-weight: 500;
+}
+
+.profile-info p {
+    display: none; /* Hide old style, using new items */
+}
+
+/* ============================================
+   PROFILE EDIT FORM
+   ============================================ */
+.profile-form {
+    background: var(--card);
+    border-radius: var(--radius-xl);
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1.5rem;
+    border: 2px solid var(--primary-200);
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-form h2 {
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 3px solid;
+    border-image: linear-gradient(90deg, var(--primary), var(--accent)) 1;
+    display: inline-block;
+    font-size: 1.1rem;
+    color: var(--gray-900);
+}
+
+.profile-form .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+    max-width: 500px;
+}
+
+.profile-form .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-form .form-group input {
+    max-width: 100%;
+}
+
+/* ============================================
+   PAGE HEADING
+   ============================================ */
+.anggota-page > h2,
+.anggota-page > h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.anggota-page > h2 i,
+.anggota-page > h1 i {
+    color: var(--primary);
+}
+
+/* ============================================
+   TOP BAR (Search + Filter)
+   ============================================ */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 12px;
+    flex-wrap: wrap;
+    background: var(--card);
+    padding: 16px 20px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+    margin-bottom: 1rem;
+}
+
+.search-box {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex: 1;
+    min-width: 200px;
+}
+
+.search-box input {
+    width: 260px;
+    max-width: 100%;
+    flex: 1;
+}
+
+.search-box button {
+    flex-shrink: 0;
+}
+
+.filter-box {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.filter-box select {
+    font-size: 0.82rem;
+    padding: 8px 30px 8px 10px;
+    width: 140px;
+    max-width: 140px;
+    border-radius: var(--radius-sm);
+}
+
+/* ============================================
+   BOOK ITEM CARD (Peminjaman/Pengembalian)
+   ============================================ */
+.book-item {
+    background: var(--card);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-xl);
+    padding: 22px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-xs);
+    transition: all var(--transition-normal);
+}
+
+.book-item:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-200);
+    transform: translateY(-2px);
+}
+
+.book-item .book-item-header {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+}
+
+.book-item .book-item-image {
+    flex-shrink: 0;
+}
+
+.book-item .book-item-image img {
+    width: 100px;
+    height: 135px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+/* Book Item No Image Placeholder */
+.book-item .book-item-no-image {
+    width: 100px;
+    height: 135px;
+    background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+}
+
+.book-item .book-item-no-image i {
+    font-size: 2.2rem;
+    color: var(--gray-300);
+    opacity: 0.6;
+}
+
+.book-item .book-item-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.book-item .book-item-details p {
+    font-size: 0.85rem;
+    margin-bottom: 0.15rem;
+    color: var(--gray-600);
+}
+
+.book-item .book-item-details p b {
+    color: var(--gray-800);
+    font-weight: 600;
+}
+
+.book-item .book-item-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+/* Book item action buttons */
+.book-item .book-item-details > div {
+    margin-top: 14px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--gray-400);
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+    opacity: 0.4;
+}
+
+.empty-state p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--gray-500);
+}
+
+/* ============================================
+   HISTORI ITEM
+   ============================================ */
+.histori-item {
+    background: var(--card);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-xl);
+    padding: 22px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-xs);
+    transition: all var(--transition-normal);
+}
+
+.histori-item:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.histori-item .histori-header {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+}
+
+.histori-item .histori-image {
+    flex-shrink: 0;
+}
+
+.histori-item .histori-image img {
+    width: 80px;
+    height: 108px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.histori-item .histori-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.histori-item .histori-details p {
+    font-size: 0.85rem;
+    margin-bottom: 0.12rem;
+    color: var(--gray-600);
+}
+
+.histori-item .histori-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 0.4rem;
+}
+
+.histori-item .histori-actions {
+    margin-top: 14px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.histori-item .histori-actions form {
+    display: inline;
+}
+
+/* ============================================
+   CLEAR BUTTON
+   ============================================ */
+.clear-btn-wrapper {
+    margin: 1rem 0;
+}
+
+/* ============================================
+   RESPONSIVE - Mobile (< 576px)
+   ============================================ */
+@media (max-width: 575px) {
+    .anggota-page {
+        padding: 12px 10px;
+    }
+
+    /* Profile Card - Mobile */
+    .profile-card {
+        padding: 24px 18px;
+        border-radius: var(--radius-lg);
+    }
+
+    .profile-card h1 {
+        font-size: 1.3rem;
+        flex-wrap: wrap;
+    }
+
+    .profile-info-item {
+        padding: 10px 14px;
+    }
+
+    .profile-info-item i {
+        font-size: 0.9rem;
+    }
+
+    .profile-info-item span {
+        font-size: 0.88rem;
+    }
+
+    /* Profile Form - Mobile */
+    .profile-form {
+        padding: 20px 16px;
+        border-radius: var(--radius-lg);
+    }
+
+    /* Top Bar - Mobile */
+    .top-bar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px 16px;
+        border-radius: var(--radius-md);
+    }
+
+    .search-box {
+        flex-direction: column;
+        align-items: stretch;
+        min-width: 100%;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .search-box button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .filter-box {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .filter-box select {
+        flex: 1;
+        width: auto;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    /* Book Item - Mobile */
+    .book-item {
+        padding: 16px;
+        border-radius: var(--radius-lg);
+        margin-bottom: 10px;
+    }
+
+    .book-item .book-item-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .book-item .book-item-image img {
+        width: 120px;
+        height: 160px;
+    }
+
+    .book-item .book-item-no-image {
+        width: 120px;
+        height: 160px;
+    }
+
+    .book-item .book-item-details p {
+        font-size: 0.82rem;
+    }
+
+    .book-item .book-item-title {
+        font-size: 1rem;
+    }
+
+    .book-item .book-item-details > div {
+        justify-content: center;
+    }
+
+    /* Histori Item - Mobile */
+    .histori-item {
+        padding: 16px;
+        border-radius: var(--radius-lg);
+        margin-bottom: 10px;
+    }
+
+    .histori-item .histori-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .histori-item .histori-image img {
+        width: 100px;
+        height: 135px;
+    }
+
+    .histori-item .histori-details p {
+        font-size: 0.82rem;
+    }
+
+    .histori-item .histori-title {
+        font-size: 1rem;
+    }
+
+    .histori-item .histori-actions {
+        justify-content: center;
+    }
+
+    /* Page Heading */
+    .anggota-page > h2,
+    .anggota-page > h1 {
+        font-size: 1.15rem;
+        flex-wrap: wrap;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - Tablet (576px - 991px)
+   ============================================ */
+@media (min-width: 576px) and (max-width: 991px) {
+    .anggota-page {
+        padding: 16px 14px;
+    }
+
+    .search-box input {
+        width: 220px;
+    }
+
+    .filter-box select {
+        width: 130px;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - Desktop (>= 992px)
+   ============================================ */
+@media (min-width: 992px) {
+    .anggota-page {
+        padding: 28px 24px;
+    }
+
+    .profile-card {
+        padding: 36px;
+    }
+
+    .profile-info {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .profile-info-item {
+        flex: 1;
+        min-width: 180px;
+    }
+}

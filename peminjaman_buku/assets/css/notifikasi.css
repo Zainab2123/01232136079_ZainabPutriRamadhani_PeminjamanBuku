@@ -1,0 +1,802 @@
+/* ============================================
+   NOTIFIKASI SYSTEM STYLES
+   Bell icon, dropdown, toast, panel
+   ============================================ */
+
+/* ============================================
+   BELL ICON (di navbar)
+   ============================================ */
+.notif-bell {
+    position: relative;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gray-600);
+    text-decoration: none;
+}
+
+.notif-bell:hover {
+    background: var(--primary-50);
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.notif-bell i {
+    font-size: 1.15rem;
+    position: relative;
+}
+
+.notif-badge {
+    position: absolute;
+    top: -4px;
+    right: -6px;
+    background: linear-gradient(135deg, #EF4444 0%, #F87171 100%);
+    color: #fff;
+    font-size: 0.6rem;
+    font-weight: 800;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    box-shadow: 0 2px 6px rgba(239, 68, 68, 0.4);
+    line-height: 1;
+    animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+.notif-badge.hidden {
+    display: none;
+}
+
+/* ============================================
+   NOTIFIKASI DROPDOWN PANEL
+   ============================================ */
+.notif-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 420px;
+    max-height: 500px;
+    background: var(--card);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    z-index: 500;
+    overflow: hidden;
+    animation: slideDown 0.25s ease;
+}
+
+.notif-dropdown.active {
+    display: block;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.notif-dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--gray-100);
+    background: var(--gray-50);
+}
+
+.notif-dropdown-header h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+}
+
+.notif-dropdown-header h4 i {
+    color: var(--primary);
+}
+
+.notif-header-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.notif-header-actions button {
+    font-size: 0.72rem;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+}
+
+.notif-dropdown-body {
+    max-height: 380px;
+    overflow-y: auto;
+    padding: 0;
+}
+
+.notif-dropdown-body::-webkit-scrollbar {
+    width: 4px;
+}
+
+.notif-dropdown-body::-webkit-scrollbar-thumb {
+    background: var(--gray-300);
+    border-radius: 2px;
+}
+
+/* Notifikasi Item */
+.notif-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--gray-50);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    position: relative;
+}
+
+.notif-item:hover {
+    background: var(--primary-50);
+}
+
+.notif-item.unread {
+    background: #F0F4FF;
+}
+
+.notif-item.unread::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--primary);
+    border-radius: 0 3px 3px 0;
+}
+
+.notif-item-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+}
+
+.notif-item-icon.tipe-permohonan {
+    background: #FEF3C7;
+    color: #D97706;
+}
+
+.notif-item-icon.tipe-disetujui {
+    background: #D1FAE5;
+    color: #059669;
+}
+
+.notif-item-icon.tipe-ditolak {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+.notif-item-icon.tipe-info {
+    background: var(--primary-50);
+    color: var(--primary);
+}
+
+.notif-item-icon.tipe-info-admin {
+    background: #E0E7FF;
+    color: #4338CA;
+}
+
+.notif-item-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.notif-item-content p {
+    font-size: 0.82rem;
+    color: var(--gray-700);
+    margin: 0 0 4px 0;
+    line-height: 1.45;
+    word-wrap: break-word;
+}
+
+.notif-item-content .notif-time {
+    font-size: 0.7rem;
+    color: var(--gray-400);
+    font-weight: 500;
+}
+
+/* Tombol Aksi Validasi di Notifikasi */
+.notif-item-actions {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.notif-btn-acc,
+.notif-btn-tolak {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 0.72rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: none;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.notif-btn-acc {
+    background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+    color: #fff;
+}
+
+.notif-btn-acc:hover {
+    background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+    transform: translateY(-1px);
+}
+
+.notif-btn-tolak {
+    background: linear-gradient(135deg, #EF4444 0%, #F87171 100%);
+    color: #fff;
+}
+
+.notif-btn-tolak:hover {
+    background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%);
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+    transform: translateY(-1px);
+}
+
+.notif-btn-acc i,
+.notif-btn-tolak i {
+    font-size: 0.7rem;
+}
+
+.notif-item-delete {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: var(--gray-400);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    transition: all var(--transition-fast);
+    box-shadow: none;
+}
+
+.notif-item-delete:hover {
+    background: var(--danger-light);
+    color: #DC2626;
+    box-shadow: none;
+    transform: none;
+    filter: none;
+}
+
+/* Empty State */
+.notif-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--gray-400);
+}
+
+.notif-empty i {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    display: block;
+    opacity: 0.5;
+}
+
+.notif-empty p {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--gray-400);
+}
+
+/* ============================================
+   HALAMAN NOTIFIKASI (Full Page)
+   ============================================ */
+.notif-page {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px 16px;
+}
+
+.notif-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 18px 22px;
+    background: var(--card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+}
+
+.notif-page-header h2 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notif-page-header h2 i {
+    color: var(--primary);
+}
+
+.notif-page-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.notif-page-actions button {
+    font-size: 0.78rem;
+    padding: 7px 14px;
+}
+
+.notif-page-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: var(--card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+    overflow: hidden;
+}
+
+.notif-page-list .notif-item {
+    padding: 16px 20px;
+}
+
+/* ============================================
+   TOAST NOTIFICATION (Auto Popup)
+   ============================================ */
+.notif-toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+    max-width: 380px;
+    width: calc(100% - 40px);
+}
+
+.notif-toast {
+    background: var(--card);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 16px 18px;
+    box-shadow: var(--shadow-xl);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    pointer-events: auto;
+    animation: toastSlideIn 0.4s ease;
+    transition: all 0.5s ease;
+    border-left: 4px solid var(--primary);
+}
+
+.notif-toast.toast-hide {
+    opacity: 0;
+    transform: translateX(120%);
+    pointer-events: none;
+}
+
+.notif-toast.toast-success {
+    border-left-color: #10B981;
+}
+
+.notif-toast.toast-warning {
+    border-left-color: #F59E0B;
+}
+
+.notif-toast.toast-danger {
+    border-left-color: #EF4444;
+}
+
+@keyframes toastSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(120%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.notif-toast-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+}
+
+.notif-toast-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.notif-toast-content p {
+    font-size: 0.82rem;
+    color: var(--gray-700);
+    margin: 0;
+    line-height: 1.45;
+}
+
+.notif-toast-close {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: var(--gray-400);
+    cursor: pointer;
+    padding: 4px;
+    font-size: 0.8rem;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    box-shadow: none;
+}
+
+.notif-toast-close:hover {
+    background: var(--gray-100);
+    color: var(--gray-600);
+    box-shadow: none;
+    transform: none;
+    filter: none;
+}
+
+/* ============================================
+   STATUS BADGE (Transaksi)
+   ============================================ */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border-radius: var(--radius-full);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+.status-badge i {
+    font-size: 0.68rem;
+}
+
+.status-menunggu-pinjam {
+    background: #FEF3C7;
+    color: #B45309;
+}
+
+.status-dipinjam {
+    background: #DBEAFE;
+    color: #1D4ED8;
+}
+
+.status-menunggu-kembali {
+    background: #FFEDD5;
+    color: #C2410C;
+}
+
+.status-dikembalikan {
+    background: #D1FAE5;
+    color: #047857;
+}
+
+.status-ditolak {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+/* ============================================
+   RESPONSIVE - Mobile
+   ============================================ */
+@media (max-width: 575px) {
+    .notif-dropdown {
+        width: calc(100vw - 20px);
+        right: -10px;
+        max-height: 400px;
+    }
+
+    .notif-toast-container {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        width: auto;
+        max-width: none;
+    }
+
+    .notif-page {
+        padding: 12px 10px;
+    }
+
+    .notif-page-header {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .notif-page-actions {
+        justify-content: center;
+    }
+
+    .notif-bell {
+        padding: 8px;
+    }
+
+    .notif-bell .notif-bell-text {
+        display: none;
+    }
+}
+
+/* ============================================
+   ADMIN PAGE: Status summary cards
+   ============================================ */
+.status-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.status-summary-item {
+    background: var(--card);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    text-align: center;
+    box-shadow: var(--shadow-xs);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.status-summary-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.status-summary-item .count {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 2px;
+}
+
+.status-summary-item .label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--gray-500);
+}
+
+.status-summary-item.summary-menunggu-pinjam .count { color: #B45309; }
+.status-summary-item.summary-dipinjam .count { color: #1D4ED8; }
+.status-summary-item.summary-menunggu-kembali .count { color: #C2410C; }
+.status-summary-item.summary-dikembalikan .count { color: #047857; }
+.status-summary-item.summary-ditolak .count { color: #DC2626; }
+
+@media (max-width: 575px) {
+    .status-summary {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .status-summary-item {
+        padding: 10px 8px;
+    }
+
+    .status-summary-item .count {
+        font-size: 1.2rem;
+    }
+}
+
+/* ============================================
+   STANDALONE NOTIFICATION PAGE
+   (Digunakan untuk error/notifikasi full page)
+   ============================================ */
+.notif-standalone {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--radius-xl);
+    padding: 44px 36px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 0.6s ease-out;
+    text-align: center;
+}
+
+.notif-standalone-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.8rem;
+    animation: notifShake 0.5s ease;
+}
+
+@keyframes notifShake {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.notif-standalone-icon.notif-danger {
+    background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%);
+    color: #DC2626;
+    box-shadow: 0 4px 16px rgba(220, 38, 38, 0.25);
+}
+
+.notif-standalone-icon.notif-warning {
+    background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+    color: #D97706;
+    box-shadow: 0 4px 16px rgba(217, 119, 6, 0.25);
+}
+
+.notif-standalone h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--gray-900);
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+.notif-standalone p {
+    font-size: 0.92rem;
+    color: var(--gray-600);
+    margin-bottom: 6px;
+    line-height: 1.6;
+}
+
+.notif-standalone p.notif-detail {
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.notif-standalone p.notif-detail i {
+    font-size: 0.8rem;
+    color: var(--gray-400);
+    width: 16px;
+}
+
+.notif-standalone-divider {
+    border: none;
+    border-top: 1px solid var(--gray-200);
+    margin: 20px 0;
+}
+
+.notif-standalone-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border-radius: var(--radius-md);
+    font-family: var(--font-family);
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    margin-top: 8px;
+}
+
+.notif-standalone-btn.btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.notif-standalone-btn.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+    text-decoration: none;
+    filter: brightness(1.05);
+}
+
+.notif-standalone-btn.btn-danger {
+    background: linear-gradient(135deg, #EF4444 0%, #F87171 100%);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.notif-standalone-btn.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+    text-decoration: none;
+    filter: brightness(1.05);
+}
+
+.notif-standalone-btn.btn-warning {
+    background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+    color: var(--gray-800);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.notif-standalone-btn.btn-warning:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+    text-decoration: none;
+    filter: brightness(1.05);
+}
+
+/* RESPONSIVE - Standalone Notification */
+@media (max-width: 480px) {
+    .notif-standalone {
+        padding: 32px 24px;
+        border-radius: var(--radius-lg);
+        max-width: 100%;
+    }
+
+    .notif-standalone-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .notif-standalone h3 {
+        font-size: 1.15rem;
+    }
+
+    .notif-standalone p {
+        font-size: 0.85rem;
+    }
+
+    .notif-standalone-btn {
+        padding: 10px 24px;
+        font-size: 0.85rem;
+    }
+}

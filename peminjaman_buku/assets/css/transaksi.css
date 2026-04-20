@@ -1,0 +1,277 @@
+/* ============================================
+   TRANSAKSI PAGES - Peminjaman & Pengembalian Forms
+   Modern Responsive Design
+   ============================================ */
+
+.transaksi-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px 16px;
+}
+
+/* ============================================
+   BACK LINK
+   ============================================ */
+.transaksi-page .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--gray-500);
+    margin-bottom: 0.5rem;
+    padding: 8px 14px;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.transaksi-page .back-link:hover {
+    color: var(--primary);
+    background: var(--primary-50);
+    text-decoration: none;
+}
+
+/* ============================================
+   TRANSAKSI CARD
+   ============================================ */
+.transaksi-card {
+    background: var(--card);
+    border-radius: var(--radius-xl);
+    padding: 36px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--gray-200);
+    animation: fadeInUp 0.4s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.transaksi-card h3 {
+    text-align: center;
+    margin-bottom: 1.75rem;
+    font-size: 1.35rem;
+    color: var(--gray-900);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.transaksi-card h3 i {
+    color: var(--primary);
+    font-size: 1.4rem;
+}
+
+/* ============================================
+   BOOK PREVIEW
+   ============================================ */
+.book-preview {
+    display: flex !important;
+    gap: 20px !important;
+    align-items: center !important;
+    text-align: left !important;
+    margin-bottom: 1.5rem;
+    padding: 20px;
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-100);
+}
+
+.book-preview img {
+    width: 120px !important;
+    height: 160px !important;
+    object-fit: cover;
+    border-radius: var(--radius-md) !important;
+    box-shadow: var(--shadow-md) !important;
+    flex-shrink: 0;
+}
+
+.book-preview > div {
+    text-align: left !important;
+    line-height: 1.7 !important;
+}
+
+.book-preview > div p {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+}
+
+.book-preview > div p b {
+    color: var(--gray-800);
+}
+
+.book-preview .book-title {
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: var(--gray-900) !important;
+    margin-bottom: 0.75rem !important;
+    line-height: 1.3 !important;
+}
+
+/* ============================================
+   TRANSAKSI FORM
+   ============================================ */
+.transaksi-form {
+    margin-top: 1.5rem;
+}
+
+.transaksi-form .form-group {
+    margin-bottom: 1.15rem;
+}
+
+.transaksi-form label {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: var(--gray-700);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.transaksi-form label i {
+    color: var(--primary);
+    font-size: 0.85rem;
+}
+
+.transaksi-form input,
+.transaksi-form select {
+    max-width: 100%;
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+}
+
+.transaksi-form .submit-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 0.75rem;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    letter-spacing: 0.02em;
+}
+
+/* ============================================
+   RESPONSIVE - Mobile (< 576px)
+   ============================================ */
+@media (max-width: 575px) {
+    .transaksi-page {
+        padding: 16px 12px;
+    }
+
+    .transaksi-card {
+        padding: 24px 18px;
+        border-radius: var(--radius-lg);
+    }
+
+    .transaksi-card h3 {
+        font-size: 1.15rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Book Preview - Mobile (stack vertically) */
+    .book-preview {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 14px !important;
+        padding: 16px;
+    }
+
+    .book-preview img {
+        width: 100px !important;
+        height: 135px !important;
+        margin: 0 auto;
+    }
+
+    .book-preview > div {
+        text-align: center !important;
+    }
+
+    .book-preview .book-title {
+        font-size: 1rem !important;
+    }
+
+    /* Form - Mobile */
+    .transaksi-form input,
+    .transaksi-form select {
+        font-size: 16px; /* Prevents iOS zoom */
+    }
+
+    .transaksi-form .submit-btn {
+        padding: 13px;
+        font-size: 0.95rem;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - Tablet (576px - 991px)
+   ============================================ */
+@media (min-width: 576px) and (max-width: 991px) {
+    .transaksi-page {
+        padding: 24px 18px;
+    }
+
+    .transaksi-card {
+        padding: 30px 24px;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - Desktop (>= 992px)
+   ============================================ */
+@media (min-width: 992px) {
+    .transaksi-page {
+        padding: 40px 24px;
+    }
+
+    .transaksi-card {
+        padding: 40px;
+        box-shadow: var(--shadow-xl);
+    }
+}
+
+/* ============================================
+   BOOK PREVIEW PLACEHOLDER (no image)
+   ============================================ */
+.book-preview-placeholder {
+    width: 120px;
+    height: 160px;
+    background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-md);
+}
+
+.book-preview-placeholder i {
+    font-size: 2.5rem;
+    color: var(--gray-300);
+}
+
+@media (max-width: 575px) {
+    .book-preview-placeholder {
+        width: 100px;
+        height: 135px;
+        margin: 0 auto;
+    }
+
+    .book-preview-placeholder i {
+        font-size: 2rem;
+    }
+}
